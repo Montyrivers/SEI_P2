@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Description:  To capture and display fascinating data from Nasa's API's returning interesting positional data and photographs
 
-## Available Scripts
+Objective: to create an immersive, well styled app purported to get viewers to become more interested in NASA's research and exploration.
 
-In the project directory, you can run:
+Challenges:  The API calls I have made so far seem promising, but the way they are structured is challenging to unpack,or in the worst case some of the API targets have poor or dated documentation ie.  the JPL planet viewer has an HTML5 app but all the docs are still for Java.  I foresee myself breaking through the more simple API targets so I can move forward with displaying and styling them in as elegant a way as I can manage.
 
-### `npm start`
+Current Component Hierarchy:
+Router:
+App---state to components:
+------Epic
+------Footer
+------JPLViewer
+------MarsRover
+------SpacePhoto
+services: nasa-api-- axios calls
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+API website:  https://api.nasa.gov/index.html#getting-started
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+MVP:  A well styled and animated page that loads and displays data smoothly.
+POST MVP:  A seamlessly styled and animated page that loads and displays data smoothly, has more streamlined searching, better organization and maybe even a couple of style related easter eggs.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# SEI_P2
