@@ -17,13 +17,20 @@ services: nasa-api-- axios calls
 API website:  https://api.nasa.gov/index.html#getting-started
 
 MVP:  A well styled and animated page that loads and displays data smoothly.
+
 -Landing page with astrophoto of the day plus info about the photo
--Near Earth Object Asteroid view with buttons that redirect to pertinant location and trajectory data on Nasa website.
+
+-Near Earth Object Asteroid view with buttons that redirect to pertinant location and 
+trajectory data on Nasa website.
+
 -EPIC planet earth 'blue marble' photos taken daily from the space shuttle DSCOVR.
+
 -Mars Curiousity Rover photos rendered either in their entirety or in batches depending upon required network and local resources required to do so. (this one still needs some extra work on my part)
 
 POST MVP:  A seamlessly styled and animated page that loads and displays data smoothly, has more streamlined searching, better organization and maybe even a couple of style related easter eggs.
+
 -A very nice overlay page triggered with darkening of elements beneath devoted to the EPIC DSCOVR photos.
+
 -conditional rendering of data lists and possibly shrinking them down to be displayed within their own modular elements i.e. a scrollable, resizeable window on a sidebar etc
 
 
