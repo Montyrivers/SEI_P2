@@ -34,7 +34,7 @@ export const renderAnEpic = async (date = '2019/06/25', image = 'epic_1b_2019062
 
 export const marsRoverPhotos = async () => {
   const response = await axios.get(`${mars_rover_url}${KEY}`)
-  console.log(response.data.photos)
+  // console.log(response.data.photos)
   return response.data.photos
 
 }

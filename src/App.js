@@ -30,20 +30,31 @@ class App extends React.Component {
     const feed = await asteroidFeed();
     const epic = await epicImages();
     const media = await astronomyPOTD();
-    const rover = await marsRoverPhotos()
+    // const rover = await marsRoverPhotos()
 
     this.setState({
       astroPhoto: media,
       asteroidFeed: feed,
       epicFeed: epic,
-      roverData: rover
+      // roverData: rover
 
     })
     console.log(this.state.astroPhoto)
     console.log(this.state.asteroidFeed)
     console.log(this.state.epicFeed)
     // console.log(this.state.renderEpic)
+    // console.log(this.state.roverData)
+  }
+
+  curiousRender = async () => {
+    // e.preventDefault()
+    const resp = await marsRoverPhotos();
+    this.setState({
+      roverData: resp
+    })
     console.log(this.state.roverData)
+    console.log('clicked')
+    return resp
   }
 
 
@@ -80,7 +91,7 @@ class App extends React.Component {
           <Route path="/viewer" render={() => <JPLViewer redirect={this.handleViewerRedirect} {...this.state} />} />
           <Route path="/epic" render={() => <Epic epicClick={this.epicInterpolateClick} {...this.state} />} />
           <Route path="/" render={() => <Footer />} />
-          <Route path="/rover" render={() => <MarsRover {...this.state} />} />
+          <Route path="/rover" render={() => <MarsRover curious={this.curiousRender} rover={this.state.roverData} />} />
         </main>
       </div>
     );
