@@ -4,13 +4,19 @@ import React from 'react'
 export default class Epic extends React.Component {
 
 
-
+  componentDidMount() {
+    const initialEpic = this.props.epicClick(this.props.epicFeed.date, this.props.epicFeed.image)
+    return initialEpic
+  }
 
   render() {
 
     return (
       <section>
         <>
+          <form>
+            <input type="date" />
+          </form>
           <h1>Blue Marble</h1>
           <img src={this.props.renderEpic} />
         </>
