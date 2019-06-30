@@ -16,13 +16,13 @@ export const astronomyPOTD = async () => {
 }
 export const asteroidFeed = async (start_date = '2019-06-15') => {
   const response = await axios.get(`${asteroid_feed_url}?start_date=${start_date}&${KEY}`)
-  console.log(response)
+  // console.log(response)
   return response.data.near_earth_objects[`${start_date}`]
 }
 
 export const epicImages = async () => {
   const response = await axios.get(`${epic_feed_url}${KEY}`)
-  // console.log(response.data)
+  console.log(response.data)
   return response.data
 }
 
@@ -34,7 +34,7 @@ export const renderAnEpic = async (date = '2019/06/25', image = 'epic_1b_2019062
 
 export const marsRoverPhotos = async () => {
   const response = await axios.get(`${mars_rover_url}${KEY}`)
-  // console.log(response.data.photos)
+  console.log(response.data.photos)
   return response.data.photos
 
 }

@@ -13,13 +13,28 @@ import MarsRover from './components/MarsRover'
 class App extends React.Component {
   constructor(props) {
     super(props)
+
+    const curday = (sp) => {
+      let today = new Date();
+      let dd = today.getDate();
+      let mm = today.getMonth() + 1;
+      let yyyy = today.getFullYear();
+
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+
+      return (yyyy + sp + mm + sp + dd)
+    };
+    // console.log(curday('-'))
+
+
     this.state = {
       astroPhoto: [],
       asteroidFeed: [],
       epicFeed: [],
       renderEpic: [],
       roverData: [],
-      asteroidDate: '',
+      asteroidDate: curday('-'),
     }
   }
 
@@ -44,8 +59,11 @@ class App extends React.Component {
   }
 
 
+
+
+
   async componentDidMount() {
-    const feed = await asteroidFeed();
+    const feed = await asteroidFeed(this.state.asteroidDate);
     const epic = await epicImages();
     const media = await astronomyPOTD();
 
@@ -61,6 +79,7 @@ class App extends React.Component {
     console.log(this.state.asteroidFeed)
     console.log(this.state.epicFeed)
     // console.log(this.state.renderEpic)
+    // console.log(this.state.asteroidDate)
 
   }
 
@@ -71,6 +90,7 @@ class App extends React.Component {
 
     const pic = await renderAnEpic(epicDate, image);
     console.log(pic)
+    // console.log(epicDate)
     this.setState({
       renderEpic: pic
     })

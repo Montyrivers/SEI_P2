@@ -17,7 +17,9 @@ export default class MarsRover extends React.Component {
       roverData: resp,
     })
   }
-
+  componentWillUnmount() {
+    clearInterval(this.marsRoverPhotos)
+  }  //clears marsRoverPhotos upon dismount of component to halt potential memory leaks.  might not keep this.
 
 
   render() {
@@ -33,7 +35,7 @@ export default class MarsRover extends React.Component {
 
 
           {this.state.roverData.length ? (this.state.roverData.map((image) => (
-            <img src={image.img_src} />
+            <div id={image.id}><img src={image.img_src} /></div>
           ))) : (
               <div>Loading...</div>
             )}
