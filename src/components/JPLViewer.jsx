@@ -8,7 +8,7 @@ export default function JPLViewer(props) {
     <div>
       <h1>Viewer</h1>
       <form >
-        <input onChange={props.handleChange} name="asteroidDate" placeholder="Select Date" type="date" />
+        <input onChange={props.handleChange} name="asteroidDate" type="date" />
         <button onClick={props.handleSubmit}>Find Near Earth Objects</button>
       </form>
       {props.asteroidFeed.map((asteroid) => (

@@ -35,7 +35,7 @@ export default class MarsRover extends React.Component {
 
 
           {this.state.roverData.length ? (this.state.roverData.map((image) => (
-            <div id={image.id}><img src={image.img_src} /></div>
+            <div id={image.id}><img className="curio" src={image.img_src} /></div>
           ))) : (
               <div>Loading...</div>
             )}

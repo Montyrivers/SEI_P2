@@ -28,6 +28,10 @@ iframe {
 img {
   float: right;
 }
+.curio {
+  height: 22em;
+  width: 25em;
+}
 /* img {
   position: absolute;
 right: 10%;

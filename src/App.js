@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom'
 import './App.css';
-import { astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, marsRoverPhotos } from './services/api-nasa'
+import { astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, marsRoverPhotos, olderEpics } from './services/api-nasa'
 import SpacePhoto from './components/SpacePhoto'
 import JPLViewer from './components/JPLViewer'
 import Epic from './components/Epic'
@@ -25,6 +25,17 @@ class App extends React.Component {
 
       return (yyyy + sp + mm + sp + dd)
     };
+    const curdayEpic = (sp) => {
+      let today = new Date();
+      let dd = today.getDate() - 3;
+      let mm = today.getMonth() + 1;
+      let yyyy = today.getFullYear();
+
+      if (dd < 10) dd = '0' + dd;
+      if (mm < 10) mm = '0' + mm;
+
+      return (yyyy + sp + mm + sp + dd)
+    };
     // console.log(curday('-'))
 
 
@@ -35,6 +46,7 @@ class App extends React.Component {
       renderEpic: [],
       roverData: [],
       asteroidDate: curday('-'),
+      epicDate: curdayEpic('-')
     }
   }
 
@@ -47,7 +59,7 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    console.log(this.state.asteroidDate)
+    // console.log(this.state.asteroidDate)
   }
   handleSubmitAsteroid = async (e) => {
     e.preventDefault()
@@ -55,9 +67,23 @@ class App extends React.Component {
     this.setState({
       asteroidFeed: dateAsteroid
     })
-
+    // console.log(this.state.asteroidDate)
   }
-
+  handleChangeEpic = (e) => {
+    e.preventDefault()
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+  handleSubmitEpic = async (e) => {
+    e.preventDefault()
+    const dateEpic = await olderEpics(this.state.epicDate)
+    this.setState({
+      epicFeed: dateEpic
+    })
+    // console.log(this.state.epicDate)
+    // console.log(dateEpic)
+  }
 
 
 
@@ -75,9 +101,9 @@ class App extends React.Component {
 
 
     })
-    console.log(this.state.astroPhoto)
-    console.log(this.state.asteroidFeed)
-    console.log(this.state.epicFeed)
+    // console.log(this.state.astroPhoto)
+    // console.log(this.state.asteroidFeed)
+    // console.log(this.state.epicFeed)
     // console.log(this.state.renderEpic)
     // console.log(this.state.asteroidDate)
 
@@ -117,7 +143,7 @@ class App extends React.Component {
         <main>
           <Route path="/" exact render={() => <SpacePhoto astroPhoto={this.state.astroPhoto} />} />
           <Route path="/viewer" render={() => <JPLViewer handleChange={this.handleChangeAsteroid} handleSubmit={this.handleSubmitAsteroid} redirect={this.handleViewerRedirect} {...this.state} />} />
-          <Route path="/epic" render={() => <Epic epicClick={this.epicInterpolateClick} {...this.state} />} />
+          <Route path="/epic" render={() => <Epic handleChange={this.handleChangeEpic} handleSubmit={this.handleSubmitEpic} epicClick={this.epicInterpolateClick} {...this.state} />} />
           <Route path="/" render={() => <Footer />} />
           <Route path="/rover" render={() => <MarsRover />} />
         </main>

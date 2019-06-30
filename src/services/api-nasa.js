@@ -26,6 +26,11 @@ export const epicImages = async () => {
   return response.data
 }
 
+export const olderEpics = async (date) => {
+  const response = await axios.get(`https://api.nasa.gov/EPIC/api/natural/date/${date}?${KEY}`)
+  console.log(response.data)
+  return response.data
+}
 export const renderAnEpic = async (date = '2019/06/25', image = 'epic_1b_20190625024728') => {
   const response = await axios.get(`${epic_image_url}${date}/png/${image}.png?${KEY}`)
   // console.log(response.config.url)

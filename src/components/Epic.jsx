@@ -9,10 +9,17 @@ export default class Epic extends React.Component {
     return initialEpic
   }
 
+
+
+
   render() {
 
     return (
       <section>
+        <form >
+          <input onChange={this.props.handleChange} name="epicDate" type="date" min="2015-06-13" />
+          <button onClick={this.props.handleSubmit}>Look Back</button>
+        </form>
         <>
 
           <h1>Blue Marble</h1>
