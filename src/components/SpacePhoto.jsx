@@ -15,7 +15,7 @@ export default function SpacePhoto(props) {
 
       <p>{props.astroPhoto.explanation}</p>
       {(props.astroPhoto.copyright !== false && (
-        <strong>-Copyright: {props.astroPhoto.copyright}</strong>
+        <strong>{props.astroPhoto.copyright}</strong>
       ))}
       <h1>{props.astroPhoto.title}</h1>
       <h4>{props.astroPhoto.date}</h4>

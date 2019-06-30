@@ -15,7 +15,12 @@ export default class Epic extends React.Component {
   render() {
 
     return (
-      <section>
+      <section className="epic">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+
         <form >
           <input onChange={this.props.handleChange} name="epicDate" type="date" min="2015-06-13" />
           <button onClick={this.props.handleSubmit}>Look Back</button>
@@ -23,9 +28,9 @@ export default class Epic extends React.Component {
         <>
 
           <h1>Blue Marble</h1>
-          <img src={this.props.renderEpic} />
+          <img className="blue-marble" src={this.props.renderEpic} />
         </>
-        <div>
+        <div className="epic-timestamps" >
           {this.props.epicFeed.map((photo) => (
 
             <div key={photo.identifier}>
