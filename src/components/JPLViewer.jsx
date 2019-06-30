@@ -2,10 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export default function JPLViewer(props) {
 
+
+
   return (
     <div>
       <h1>Viewer</h1>
-
+      <form >
+        <input onChange={props.handleChange} name="asteroidDate" placeholder="Select Date" type="date" />
+        <button onClick={props.handleSubmit}>Find Near Earth Objects</button>
+      </form>
       {props.asteroidFeed.map((asteroid) => (
         <div key={asteroid.id}>
           <h5>Asteroid Name: {asteroid.name}</h5>

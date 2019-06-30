@@ -14,9 +14,7 @@ export default class Epic extends React.Component {
     return (
       <section>
         <>
-          <form>
-            <input type="date" />
-          </form>
+
           <h1>Blue Marble</h1>
           <img src={this.props.renderEpic} />
         </>

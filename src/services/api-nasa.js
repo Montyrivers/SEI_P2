@@ -16,7 +16,7 @@ export const astronomyPOTD = async () => {
 }
 export const asteroidFeed = async (start_date = '2019-06-15') => {
   const response = await axios.get(`${asteroid_feed_url}?start_date=${start_date}&${KEY}`)
-  // console.log(response)
+  console.log(response)
   return response.data.near_earth_objects[`${start_date}`]
 }
 

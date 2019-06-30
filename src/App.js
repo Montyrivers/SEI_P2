@@ -8,6 +8,8 @@ import Epic from './components/Epic'
 import Footer from './components/Footer'
 import MarsRover from './components/MarsRover'
 
+
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -17,6 +19,7 @@ class App extends React.Component {
       epicFeed: [],
       renderEpic: [],
       roverData: [],
+      asteroidDate: '',
     }
   }
 
@@ -24,7 +27,21 @@ class App extends React.Component {
     const url = `https://ssd.jpl.nasa.gov/sbdb.cgi?sstr=${id}`
     window.open(url, '_blank');
   }
+  handleChangeAsteroid = (e) => {
+    e.preventDefault()
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+    console.log(this.state.asteroidDate)
+  }
+  handleSubmitAsteroid = async (e) => {
+    e.preventDefault()
+    const dateAsteroid = await asteroidFeed(this.state.asteroidDate)
+    this.setState({
+      asteroidFeed: dateAsteroid
+    })
 
+  }
 
 
   async componentDidMount() {
@@ -79,7 +96,7 @@ class App extends React.Component {
 
         <main>
           <Route path="/" exact render={() => <SpacePhoto astroPhoto={this.state.astroPhoto} />} />
-          <Route path="/viewer" render={() => <JPLViewer redirect={this.handleViewerRedirect} {...this.state} />} />
+          <Route path="/viewer" render={() => <JPLViewer handleChange={this.handleChangeAsteroid} handleSubmit={this.handleSubmitAsteroid} redirect={this.handleViewerRedirect} {...this.state} />} />
           <Route path="/epic" render={() => <Epic epicClick={this.epicInterpolateClick} {...this.state} />} />
           <Route path="/" render={() => <Footer />} />
           <Route path="/rover" render={() => <MarsRover />} />

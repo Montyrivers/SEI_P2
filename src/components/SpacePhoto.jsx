@@ -9,6 +9,10 @@ export default function SpacePhoto(props) {
       {(props.astroPhoto.media_type === 'image' && (
         <img src={props.astroPhoto.hdurl} />
       ))}
+      {(props.astroPhoto.media_type === 'video' && (
+        <iframe src={props.astroPhoto.url} />
+      ))}
+
       <p>{props.astroPhoto.explanation}</p>
       {(props.astroPhoto.copyright !== false && (
         <strong>-Copyright: {props.astroPhoto.copyright}</strong>
