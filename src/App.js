@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, Route, withRouter } from 'react-router-dom'
+import { Link, Switch, Route, withRouter } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './App.css';
-import { astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, marsRoverPhotos, olderEpics } from './services/api-nasa'
+import { astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, olderEpics } from './services/api-nasa'
 import SpacePhoto from './components/SpacePhoto'
 import JPLViewer from './components/JPLViewer'
 import Epic from './components/Epic'
@@ -46,7 +47,8 @@ class App extends React.Component {
       renderEpic: [],
       roverData: [],
       asteroidDate: curday('-'),
-      epicDate: curdayEpic('-')
+      epicDate: curdayEpic('-'),
+      showComponent: true,
     }
   }
 
@@ -132,21 +134,43 @@ class App extends React.Component {
 
     return (
       <div className="App">
+
         <header>
           <h6>Moon Dust Will Cover You</h6>
-          <Link to="/">Home</Link>
-          <Link to="/viewer">Viewer</Link>
-          <Link to="/epic">Epic</Link>
-          <Link to="/rover">Mars Rover Data</Link>
+          <Link to="/"><button>Home</button></Link>
+          <Link to="/viewer"><button>Viewer</button></Link>
+          <Link to="/epic"><button>Epic</button></Link>
+          <Link to="/rover"><button>Mars Rover Data</button></Link>
         </header>
 
         <main>
+          {/* <TransitionGroup className="transition-group">
+            <CSSTransition
+              key=''
+              timeout={{ enter: 300, exit: 300 }}
+              classNames="fade"
+            >
+              <section className='route-section'>
+                <Switch location=''> */}
+
           <Route path="/" exact render={() => <SpacePhoto astroPhoto={this.state.astroPhoto} />} />
+
+
+
           <Route path="/viewer" render={() => <JPLViewer handleChange={this.handleChangeAsteroid} handleSubmit={this.handleSubmitAsteroid} redirect={this.handleViewerRedirect} {...this.state} />} />
+
           <Route path="/epic" render={() => <Epic handleChange={this.handleChangeEpic} handleSubmit={this.handleSubmitEpic} epicClick={this.epicInterpolateClick} {...this.state} />} />
+
           <Route path="/" render={() => <Footer />} />
           <Route path="/rover" render={() => <MarsRover />} />
+
+          {/* </Switch>
+              </section>
+            </CSSTransition>
+          </TransitionGroup> */}
         </main>
+
+
       </div>
     );
   }

@@ -14,6 +14,7 @@ export default class Epic extends React.Component {
 
   render() {
 
+
     return (
       <section className="epic">
         <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
@@ -29,8 +30,13 @@ export default class Epic extends React.Component {
 
           <h1>Blue Marble</h1>
           <img className="blue-marble" src={this.props.renderEpic} />
+
+
+
         </>
         <div className="epic-timestamps" >
+
+
           {this.props.epicFeed.map((photo) => (
 
             <div key={photo.identifier}>
@@ -53,10 +59,12 @@ export default class Epic extends React.Component {
                 <li>{photo.dscovr_j2000_position.y}</li>
                 <li>{photo.dscovr_j2000_position.z}</li>
               </ul>
-              <small>{photo.caption}</small>
+
               <button onClick={() => this.props.epicClick(photo.date, photo.image)}>Go to Image</button> <hr />
             </div>
           ))}
+          <small>{this.props.epicFeed.caption}</small>
+
         </div>
       </section>
     )

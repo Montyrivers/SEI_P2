@@ -29,8 +29,7 @@ export default class MarsRover extends React.Component {
 
       <div>
         <section>
-          <h1>Greetings From Mars</h1>
-          <button >ShowPic</button>
+          <h1>Red Rock</h1>
           <h1>Managed to return data, but still ironing out how best to parse through and display the photos from this object</h1>
 
 
