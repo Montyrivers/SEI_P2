@@ -162,6 +162,7 @@ class App extends React.Component {
       <div className="App">
 
         <header >
+          <img className='nasalogo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1224px-NASA_logo.svg.png" />
           <h6 className="landing-heading">Moon Dust Will Cover You</h6>
           <Link to="/"><button>Home</button></Link>
           <Link to="/viewer"><button>Viewer</button></Link>
