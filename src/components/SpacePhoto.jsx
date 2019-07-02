@@ -10,7 +10,7 @@ export default function SpacePhoto(props) {
         <img className="astrophoto" src={props.astroPhoto.hdurl} />
       ))}
       {(props.astroPhoto.media_type === 'video' && (
-        <iframe src={props.astroPhoto.url} />
+        <iframe className="astrovideo" src={props.astroPhoto.url} />
       ))}
 
       <p className="explanation">{props.astroPhoto.explanation}</p>

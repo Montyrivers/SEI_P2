@@ -27,17 +27,18 @@ export default class MarsRover extends React.Component {
     return (
 
 
-      <div>
+      <div >
         <section>
           <h1>Red Rock</h1>
-          <h1>Managed to return data, but still ironing out how best to parse through and display the photos from this object</h1>
+          <h1>You won't be building a summer house here any time soon...</h1>
 
-
-          {this.state.roverData.length ? (this.state.roverData.map((image) => (
-            <div id={image.id}><img className="curio" src={image.img_src} /></div>
-          ))) : (
-              <div>Loading...</div>
-            )}
+          <div className="marsphotos">
+            {this.state.roverData.length ? (this.state.roverData.map((image) => (
+              <div id={image.id}><img className="curio" src={image.img_src} /></div>
+            ))) : (
+                <div>Loading...</div>
+              )}
+          </div>
         </section>
       </div>
 

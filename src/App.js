@@ -2,12 +2,13 @@ import React from 'react';
 import { Link, Switch, Route, withRouter } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './App.css';
-import { astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, olderEpics } from './services/api-nasa'
+import { spaceWeatherRange, spaceCoronal, astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, olderEpics } from './services/api-nasa'
 import SpacePhoto from './components/SpacePhoto'
 import JPLViewer from './components/JPLViewer'
 import Epic from './components/Epic'
 import Footer from './components/Footer'
 import MarsRover from './components/MarsRover'
+import CosmicWeather from './components/CosmicWeather'
 
 
 
@@ -49,12 +50,34 @@ class App extends React.Component {
       asteroidDate: curday('-'),
       epicDate: curdayEpic('-'),
       showComponent: true,
+      weatherNotification: [],
+      weatherStart: '',
+      weatherEnd: '',
+
     }
   }
 
   handleViewerRedirect = (id) => {
     const url = `https://ssd.jpl.nasa.gov/sbdb.cgi?sstr=${id}`
     window.open(url, '_blank');
+  }
+  handleChangeWeather = (e) => {
+    e.preventDefault()
+    this.setState({
+
+      [e.target.name]: e.target.value,
+
+    })
+
+  }
+
+  handleSubmitWeather = async (e) => {
+    e.preventDefault()
+    const weatherDate = await spaceWeatherRange(this.state.weatherStart, this.state.weatherEnd)
+    this.setState({
+      weatherNotification: weatherDate,
+    })
+
   }
   handleChangeAsteroid = (e) => {
     e.preventDefault()
@@ -94,15 +117,18 @@ class App extends React.Component {
     const feed = await asteroidFeed(this.state.asteroidDate);
     const epic = await epicImages();
     const media = await astronomyPOTD();
+    const weatherNot = await spaceCoronal()
 
 
     this.setState({
       astroPhoto: media,
       asteroidFeed: feed,
       epicFeed: epic,
+      weatherNotification: weatherNot,
 
 
     })
+    console.log(this.state.weatherNotification)
     // console.log(this.state.astroPhoto)
     // console.log(this.state.asteroidFeed)
     // console.log(this.state.epicFeed)
@@ -135,12 +161,13 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <header>
-          <h6>Moon Dust Will Cover You</h6>
+        <header >
+          <h6 className="landing-heading">Moon Dust Will Cover You</h6>
           <Link to="/"><button>Home</button></Link>
           <Link to="/viewer"><button>Viewer</button></Link>
           <Link to="/epic"><button>Epic</button></Link>
           <Link to="/rover"><button>Mars Rover Data</button></Link>
+          <Link to="/weather"><button>Space Weather</button></Link>
         </header>
 
         <main>
@@ -163,6 +190,7 @@ class App extends React.Component {
 
           <Route path="/" render={() => <Footer />} />
           <Route path="/rover" render={() => <MarsRover />} />
+          <Route path="/weather" render={() => <CosmicWeather notification={this.state.weatherNotification} handleChange={this.handleChangeWeather} handleSubmit={this.handleSubmitWeather} />} />
 
           {/* </Switch>
               </section>

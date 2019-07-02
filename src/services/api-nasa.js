@@ -7,6 +7,19 @@ const asteroid_feed_url = 'https://api.nasa.gov/neo/rest/v1/feed'
 const epic_feed_url = 'https://api.nasa.gov/EPIC/api/natural/images?'
 const epic_image_url = 'https://api.nasa.gov/EPIC/archive/natural/'
 const mars_rover_url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&'
+const space_weather_url = 'https://api.nasa.gov/DONKI/notifications'
+
+export const spaceCoronal = async () => {
+  const response = await axios.get(`${space_weather_url}?${KEY}`)
+  // console.log(response.data)
+  return response.data
+}
+
+export const spaceWeatherRange = async (start, end) => {
+  const response = await axios.get(`${space_weather_url}?startDate=${start}&endDate=${end}&${KEY}`)
+  console.log(response.data)
+  return response.data
+}
 
 
 export const astronomyPOTD = async () => {
@@ -22,13 +35,13 @@ export const asteroidFeed = async (start_date = '2019-06-15') => {
 
 export const epicImages = async () => {
   const response = await axios.get(`${epic_feed_url}${KEY}`)
-  console.log(response.data)
+  // console.log(response.data)
   return response.data
 }
 
 export const olderEpics = async (date) => {
   const response = await axios.get(`https://api.nasa.gov/EPIC/api/natural/date/${date}?${KEY}`)
-  console.log(response.data)
+  // console.log(response.data)
   return response.data
 }
 export const renderAnEpic = async (date = '2019/06/25', image = 'epic_1b_20190625024728') => {
@@ -39,7 +52,7 @@ export const renderAnEpic = async (date = '2019/06/25', image = 'epic_1b_2019062
 
 export const marsRoverPhotos = async () => {
   const response = await axios.get(`${mars_rover_url}${KEY}`)
-  console.log(response.data.photos)
+  // console.log(response.data.photos)
   return response.data.photos
 
 }
