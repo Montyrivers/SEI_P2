@@ -24,12 +24,14 @@ export default class Epic extends React.Component {
 
         <form >
           <input onChange={this.props.handleChange} name="epicDate" type="date" min="2015-06-13" />
-          <button className="submitButton" onClick={this.props.handleSubmit}>Look Back</button>
+          <button className="submitButton" onClick={this.props.handleSubmit}>Look Back</button> <small>*data rendered returns 24 hour cycle for given date.</small>
+
         </form>
         <>
 
           <h1>Blue Marble</h1>
           <img className="blue-marble" src={this.props.renderEpic} />
+
 
 
 

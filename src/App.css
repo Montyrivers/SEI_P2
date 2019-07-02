@@ -42,6 +42,9 @@ header {
  
 }
 
+main {
+  min-height: 90vh;
+}
 section {
   display: relative;
   margin: 0;
@@ -79,22 +82,27 @@ header {
   text-align: center;
 }
 footer {
-  position: relative;
-  bottom: -15em;
-text-align: right;
+width: 90%;
+
 background: linear-gradient(to right, cyan, lightblue, lightgray, gray); 
 box-shadow: 20px;
 opacity: .5;
-left: 51.57em;
+
 color: red;
 box-shadow: 3px 4px 0px 0px #899599;
-border-radius: 2%;
+border-top-right-radius: 60%;
+  border-bottom-right-radius: 60%;
 padding-left: 5px;
-
+padding-bottom: 16px;
+}
+footer p {
+  margin: 0 auto;
 }
 
 small {
   font-size: 8px;
+  margin: 0 auto;
+
 }
 .asteroid {
   display: grid;
@@ -109,6 +117,8 @@ small {
   padding-right: 8px;
 }
 .marsphotos {
+  margin: 0 auto;
+
   position:relative;
   width: 18%;
   min-height: 44em;
@@ -118,6 +128,19 @@ small {
   overflow-y: auto;
   border:1px solid #ccc;
   text-align: justify;
+}
+.notification-info {
+  position:relative;
+  width: 18%;
+  min-height: 44em;
+  height: 44em;
+  width: 103em;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border:1px solid #ccc;
+  text-align: justify;
+  padding: .4em;
 }
 
 .jpl {
@@ -185,6 +208,8 @@ html {
 }
 .astrophoto {
   left: -2em;
+  margin: 0 auto;
+  border: 1px solid lightgray;
 }
 
 .epic {
@@ -201,11 +226,13 @@ html {
   text-align: justify;
   padding-left: 8px;
   padding-right: 8px;
+  
 }
 .blue-marble {
   z-index: 0.5;
   position: relative;
   height: 80%;
+  max-width: 1100px;
   width: 80%;
   border-radius: 100%;
   margin-top: -10%;

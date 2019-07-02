@@ -14,7 +14,8 @@ export default function JPLViewer(props) {
 
       <form >
         <input onChange={props.handleChange} name="asteroidDate" type="date" />
-        <button className="submitButton" onClick={props.handleSubmit}>Find Near Earth Objects</button>
+        <button className="submitButton" onClick={props.handleSubmit}>Find Near Earth Objects</button>       <small>*data rendered projected 7 days from input date</small>
+
       </form>
       <h1>Viewer</h1>
       <iframe className="jpl" src='https://cneos.jpl.nasa.gov/ov/index.html#load=&orientation=0,0,0,1&lookat=SSB&interval=3&eclipticgrid=false&distance=29919.57414&pitch=0&roll=0&yaw=0&scale=0.005890779006806091&rotateX=-25.985006106485574&rotateY=56.94898857168325&begin=2019-06-15T14:05&end=2019-6-25T14:05$sat=3842896'></iframe>
@@ -29,6 +30,7 @@ export default function JPLViewer(props) {
             {(asteroid.is_potentially_hazardous_asteroid && (
               <h6>•Potentially dangerous asteroid•</h6>
             ))}
+            <hr />
 
 
           </div>

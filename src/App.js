@@ -170,7 +170,10 @@ class App extends React.Component {
           <Link to="/weather"><button>Space Weather</button></Link>
         </header>
 
+
         <main>
+          <small>It's confusing, these days...</small>
+
           {/* <TransitionGroup className="transition-group">
             <CSSTransition
               key=''
@@ -188,7 +191,7 @@ class App extends React.Component {
 
           <Route path="/epic" render={() => <Epic handleChange={this.handleChangeEpic} handleSubmit={this.handleSubmitEpic} epicClick={this.epicInterpolateClick} {...this.state} />} />
 
-          <Route path="/" render={() => <Footer />} />
+
           <Route path="/rover" render={() => <MarsRover />} />
           <Route path="/weather" render={() => <CosmicWeather notification={this.state.weatherNotification} handleChange={this.handleChangeWeather} handleSubmit={this.handleSubmitWeather} />} />
 
@@ -197,6 +200,7 @@ class App extends React.Component {
             </CSSTransition>
           </TransitionGroup> */}
         </main>
+        <Route path="/" render={() => <Footer />} />
 
 
       </div>

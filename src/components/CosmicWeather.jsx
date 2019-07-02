@@ -23,7 +23,7 @@ export default function CosmicWeather(props) {
         <small>*All queries spanning greater than 30 days will be narrowed down.</small>
       </form>
 
-      <div>
+      <div className='notification-info'>
         {props.notification.map((notification) => (
           <div key={notification.messageID}>
             <h3>{notification.messageIssueTime}</h3>

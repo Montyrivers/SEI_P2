@@ -31,7 +31,7 @@ export default class MarsRover extends React.Component {
         <section>
           <h1>Red Rock</h1>
           <h1>You won't be building a summer house here any time soon...</h1>
-
+          <small>*photos returned by curiosity drone from Mars.</small>
           <div className="marsphotos">
             {this.state.roverData.length ? (this.state.roverData.map((image) => (
               <div id={image.id}><img className="curio" src={image.img_src} /></div>
