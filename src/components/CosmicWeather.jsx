@@ -3,10 +3,10 @@ import React from 'react'
 export default function CosmicWeather(props) {
 
 
-  const lineBreaks = (string) => {
-    const breaks = string.split('##').join('{<br />}')
-    return breaks
-  }
+  // const lineBreaks = (string) => {
+  //   const breaks = string.split('##').join('{<br />}')
+  //   return breaks
+  // }
 
 
   return (

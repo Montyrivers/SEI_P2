@@ -17,7 +17,7 @@ export const spaceCoronal = async () => {
 
 export const spaceWeatherRange = async (start, end) => {
   const response = await axios.get(`${space_weather_url}?startDate=${start}&endDate=${end}&${KEY}`)
-  console.log(response.data)
+  // console.log(response.data)
   return response.data
 }
 

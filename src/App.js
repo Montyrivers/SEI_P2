@@ -9,7 +9,7 @@ import Epic from './components/Epic'
 import Footer from './components/Footer'
 import MarsRover from './components/MarsRover'
 import CosmicWeather from './components/CosmicWeather'
-
+import HalloSpaceBoy from './components/HalloSpaceBoy'
 
 
 class App extends React.Component {
@@ -128,7 +128,7 @@ class App extends React.Component {
 
 
     })
-    console.log(this.state.weatherNotification)
+    // console.log(this.state.weatherNotification)
     // console.log(this.state.astroPhoto)
     // console.log(this.state.asteroidFeed)
     // console.log(this.state.epicFeed)
@@ -143,13 +143,14 @@ class App extends React.Component {
     const epicDate = date.split('-').join('/').split(' ').join('').slice(0, 10)
 
     const pic = await renderAnEpic(epicDate, image);
-    console.log(pic)
+    // console.log(pic)
     // console.log(epicDate)
     this.setState({
       renderEpic: pic
     })
 
   }
+
 
 
 
@@ -201,6 +202,7 @@ class App extends React.Component {
             </CSSTransition>
           </TransitionGroup> */}
         </main>
+        <Route path="/" render={() => <HalloSpaceBoy />} />
         <Route path="/" render={() => <Footer />} />
 
 

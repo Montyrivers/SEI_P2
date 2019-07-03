@@ -1,5 +1,4 @@
 import React from 'react'
-// import { marsRoverPhotos } from '/api-nasa'
 import { marsRoverPhotos } from '../services/api-nasa'
 
 
