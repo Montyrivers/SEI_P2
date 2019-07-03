@@ -96,7 +96,7 @@ export default class HalloSpaceBody extends React.Component {
   render() {
     return (
       <div>
-        <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3, 10, 11, 12, 13, 14, 15, 671, 672, 683, 927, 930]} />
+        <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[927, 930]} />
       </div>
     )
   }

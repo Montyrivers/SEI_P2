@@ -62,7 +62,7 @@ export default class Epic extends React.Component {
                 <li>Z-axis:{photo.dscovr_j2000_position.z}</li>
               </ul>
               <small>{photo.caption}</small> <br /><br />
-              <button onClick={() => this.props.epicClick(photo.date, photo.image)}>Spin To Image</button> <hr />
+              <button className="display-button" onClick={() => this.props.epicClick(photo.date, photo.image)}>Spin To Image</button> <hr />
             </div>
           ))}
 

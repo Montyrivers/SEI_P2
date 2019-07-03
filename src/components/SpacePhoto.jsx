@@ -3,7 +3,7 @@ import React from 'react'
 export default function SpacePhoto(props) {
 
   return (
-    <section>
+    <section >
 
 
       {(props.astroPhoto.media_type === 'image' && (
@@ -14,6 +14,7 @@ export default function SpacePhoto(props) {
       ))}
 
       <p className="explanation">{props.astroPhoto.explanation}</p>
+
       {(props.astroPhoto.copyright !== false && (
         <strong>{props.astroPhoto.copyright}</strong>
       ))}

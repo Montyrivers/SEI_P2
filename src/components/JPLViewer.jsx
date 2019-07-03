@@ -25,7 +25,7 @@ export default function JPLViewer(props) {
           <div className='asteroid-info' key={asteroid.id}>
             <h5>Asteroid Name: {asteroid.name}</h5>
             <h5>Asteroid ID: {asteroid.id}</h5>
-            <button onClick={() => props.redirect(asteroid.id)}>Nasa Tracker</button>
+            <button className="display-button" onClick={() => props.redirect(asteroid.id)}>Nasa Tracker</button>
             {(asteroid.is_potentially_hazardous_asteroid && (
               <h6>•Potentially dangerous asteroid•</h6>
             ))}
