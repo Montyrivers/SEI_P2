@@ -1,3 +1,8 @@
+
+initial deployment can be found here:
+
+bye-bye-love.surge.sh
+
 Description:  To capture and display fascinating data from Nasa's API's returning interesting positional data and photographs
 
 Objective: to create an immersive, well styled app purported to get viewers to become more interested in NASA's research and exploration.
