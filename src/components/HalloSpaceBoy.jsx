@@ -7,17 +7,13 @@ export default class HalloSpaceBody extends React.Component {
 
 
   loadSound = () => {
-
-
     let AudioContextFunc = window.AudioContext || window.webkitAudioContext;
     let audioContext = new AudioContextFunc();
-
     if (navigator.requestMIDIAccess) {
       console.log('MIDI supported');
     } else {
       console.log('MIDI not supported')
     };
-
 
     const onMIDISuccess = (midiAccess) => {
       console.log(midiAccess);
@@ -38,35 +34,24 @@ export default class HalloSpaceBody extends React.Component {
       let note = message.data[1];
       let velocity = (message.data.length > 2) ? message.data[2] : 0
 
-
-
       const playTestInstrument = (note) => {
         this.midiSounds.playChordNow(927, [note], 1.5);
-
       }
-
 
       switch (command) {
         case 128:  //noteOff
           // console.log(command, velocity, note)
 
-
           break
         case 144: //noteOn
-
-
-
-
 
           playTestInstrument(note)
           // console.log(command, velocity, note);
 
           if (velocity > 0) {
             // console.log(command, velocity, note);
-
-
-
           }
+
           break;
         case 176: //sustain
           // console.log(command, velocity, note);
@@ -75,20 +60,11 @@ export default class HalloSpaceBody extends React.Component {
         // console.log(command, velocity, note)
       }
 
-
-
-
-
-
-
-
     }
 
     navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
-
-
-
   }
+
   componentDidMount() {
     this.loadSound()
   }
@@ -103,3 +79,26 @@ export default class HalloSpaceBody extends React.Component {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, Switch, Route, withRouter } from 'react-router-dom'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { Link, Route, withRouter } from 'react-router-dom'
 import './App.css';
 import { spaceWeatherRange, spaceCoronal, astronomyPOTD, asteroidFeed, epicImages, renderAnEpic, olderEpics } from './services/api-nasa'
 import SpacePhoto from './components/SpacePhoto'
@@ -168,46 +167,36 @@ class App extends React.Component {
           <Link to="/"><button>Home</button></Link>
           <Link to="/viewer"><button>Viewer</button></Link>
           <Link to="/epic"><button>Epic</button></Link>
-          <Link to="/rover"><button>Mars Rover Data</button></Link>
+          <Link to="/rover"><button>Mars Rover Photos</button></Link>
           <Link to="/weather"><button>Space Weather</button></Link>
         </header>
 
 
         <main>
           <small>It's confusing, these days...</small>
-
-          {/* <TransitionGroup className="transition-group">
-            <CSSTransition
-              key=''
-              timeout={{ enter: 300, exit: 300 }}
-              classNames="fade"
-            >
-              <section className='route-section'>
-                <Switch location=''> */}
-
           <Route path="/" exact render={() => <SpacePhoto astroPhoto={this.state.astroPhoto} />} />
-
-
-
           <Route path="/viewer" render={() => <JPLViewer handleChange={this.handleChangeAsteroid} handleSubmit={this.handleSubmitAsteroid} redirect={this.handleViewerRedirect} {...this.state} />} />
-
           <Route path="/epic" render={() => <Epic handleChange={this.handleChangeEpic} handleSubmit={this.handleSubmitEpic} epicClick={this.epicInterpolateClick} {...this.state} />} />
-
-
           <Route path="/rover" render={() => <MarsRover />} />
           <Route path="/weather" render={() => <CosmicWeather notification={this.state.weatherNotification} handleChange={this.handleChangeWeather} handleSubmit={this.handleSubmitWeather} />} />
-
-          {/* </Switch>
-              </section>
-            </CSSTransition>
-          </TransitionGroup> */}
         </main>
         <Route path="/" render={() => <HalloSpaceBoy />} />
         <Route path="/" render={() => <Footer />} />
-
-
       </div>
     );
   }
 }
 export default withRouter(App);
+
+
+
+
+
+
+
+
+
+
+
+
+

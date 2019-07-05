@@ -29,7 +29,7 @@ export default class MarsRover extends React.Component {
       <div >
         <section>
           <h1>Red Rock</h1>
-          <h1>You won't be building a summer house here any time soon...</h1>
+          <h1>You won't be building a summer house on Mars any time soon...</h1>
           <small>*photos returned by curiosity drone from Mars.</small>
           <div className="marsphotos">
             {this.state.roverData.length ? (this.state.roverData.map((image) => (
@@ -48,4 +48,3 @@ export default class MarsRover extends React.Component {
   }
 }
 
-// />
